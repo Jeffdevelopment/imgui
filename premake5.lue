@@ -1,0 +1,11 @@
+project "ImGui"
+  kind "StaticLib"
+  language "C++"
+
+  targetdir ("binary/" .. outputdir .. "/%{prj.name}")
+	objdir("binary-intermediate/" .. outputdir .. "/%{prj.name}")
+
+  files
+  {
+  
+  }
