@@ -1,0 +1,29 @@
+project "ImGui"
+  kind "StaticLib"
+  language "C++"
+
+  targetdir ("binary/" .. outputdir .. "/%{prj.name}")
+	objdir("binary-intermediate/" .. outputdir .. "/%{prj.name}")
+
+  files
+  {
+    "imconfig.h", 
+    "imgui.cpp",
+    "imgui.h",
+    "imgui_demo.cpp",
+    "imgui_draw.cpp",
+    "imgui_internal.h",
+    "imgui_tables.cpp",
+    "imgui_widgets.cpp",
+    "imstb_rectpack.cpp",
+    "imstb_textedit.h.cpp",
+    "imstb_truetype.h.cpp",
+  }
+
+filter "system:windows" 
+  systemversion "latest"
+  cppdialect "C++17"
+  staticruntime "On"
+
+filter {"system:windows", "configurations:Release}
+  buildoptions "/MT"
