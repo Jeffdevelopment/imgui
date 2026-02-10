@@ -3,7 +3,7 @@ project "ImGui"
   language "C++"
 
   targetdir ("binary/" .. outputdir .. "/%{prj.name}")
-	objdir("binary-intermediate/" .. outputdir .. "/%{prj.name}")
+    objdir ("binary-intermediate/" .. outputdir .. "/%{prj.name}")
 
   files
   {
@@ -17,7 +17,7 @@ project "ImGui"
     "imgui_widgets.cpp",
     "imstb_rectpack.cpp",
     "imstb_textedit.h.cpp",
-    "imstb_truetype.h.cpp",
+    "imstb_truetype.h.cpp"
   }
 
 filter "system:windows" 
@@ -25,5 +25,5 @@ filter "system:windows"
   cppdialect "C++17"
   staticruntime "On"
 
-filter {"system:windows", "configurations:Release}
+filter {"system:windows", "configurations:Release"}
   buildoptions "/MT"
