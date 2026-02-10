@@ -15,9 +15,9 @@ project "ImGui"
     "imgui_internal.h",
     "imgui_tables.cpp",
     "imgui_widgets.cpp",
-    "imstb_rectpack.cpp",
-    "imstb_textedit.h.cpp",
-    "imstb_truetype.h.cpp"
+    "imstb_rectpack.h",
+    "imstb_textedit.h",
+    "imstb_truetype.h"
   }
 
 filter "system:windows" 
