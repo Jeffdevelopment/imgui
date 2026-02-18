@@ -40,8 +40,8 @@ static int                      wgpu_surface_width = 1280;
 static int                      wgpu_surface_height = 800;
 
 // Forward declarations
-static bool         InitWGPU(GLFWwindow* window);
-static WGPUSurface  CreateWGPUSurface(const WGPUInstance& instance, GLFWwindow* window);
+static bool InitWGPU(GLFWwindow* window);
+WGPUSurface CreateWGPUSurface(const WGPUInstance& instance, GLFWwindow* window);
 
 static void glfw_error_callback(int error, const char* description)
 {
@@ -113,7 +113,7 @@ int main(int, char**)
     ImGui_ImplWGPU_Init(&init_info);
 
     // Load Fonts
-    // - If fonts are not explicitly loaded, Dear ImGui will call AddFontDefault() to select an embedded font: either AddFontDefaultVector() or AddFontDefaultBitmap().
+    // - If fonts are not explicitly loaded, Dear ImGui will select an embedded font: either AddFontDefaultVector() or AddFontDefaultBitmap().
     //   This selection is based on (style.FontSizeBase * style.FontScaleMain * style.FontScaleDpi) reaching a small threshold.
     // - You can load multiple fonts and use ImGui::PushFont()/PopFont() to select them.
     // - If a file cannot be loaded, AddFont functions will return a nullptr. Please handle those errors in your code (e.g. use an assertion, display an error and quit).
@@ -408,7 +408,7 @@ static WGPUDevice RequestDevice(WGPUAdapter& adapter)
 #endif // __EMSCRIPTEN__
 #endif // IMGUI_IMPL_WEBGPU_BACKEND_WGPU
 
-static bool InitWGPU(GLFWwindow* window)
+bool InitWGPU(GLFWwindow* window)
 {
     WGPUTextureFormat preferred_fmt = WGPUTextureFormat_Undefined;  // acquired from SurfaceCapabilities
 

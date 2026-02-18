@@ -40,8 +40,8 @@ static int                      wgpu_surface_width = 1280;
 static int                      wgpu_surface_height = 800;
 
 // Forward declarations
-static bool         InitWGPU(SDL_Window* window);
-static WGPUSurface  CreateWGPUSurface(const WGPUInstance& instance, SDL_Window* window);
+static bool InitWGPU(SDL_Window* window);
+WGPUSurface CreateWGPUSurface(const WGPUInstance& instance, SDL_Window* window);
 
 static void ResizeSurface(int width, int height)
 {
@@ -101,7 +101,7 @@ int main(int, char**)
     ImGui_ImplWGPU_Init(&init_info);
 
     // Load Fonts
-    // - If fonts are not explicitly loaded, Dear ImGui will call AddFontDefault() to select an embedded font: either AddFontDefaultVector() or AddFontDefaultBitmap().
+    // - If fonts are not explicitly loaded, Dear ImGui will select an embedded font: either AddFontDefaultVector() or AddFontDefaultBitmap().
     //   This selection is based on (style.FontSizeBase * style.FontScaleMain * style.FontScaleDpi) reaching a small threshold.
     // - You can load multiple fonts and use ImGui::PushFont()/PopFont() to select them.
     // - If a file cannot be loaded, AddFont functions will return a nullptr. Please handle those errors in your code (e.g. use an assertion, display an error and quit).
