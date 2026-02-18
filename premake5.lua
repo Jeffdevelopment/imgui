@@ -27,3 +27,4 @@ filter "system:windows"
 
 filter {"system:windows", "configurations:Release"}
   buildoptions "/MT"
+    runtime "Release
