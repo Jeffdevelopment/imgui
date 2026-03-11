@@ -26,5 +26,5 @@ filter "system:windows"
   staticruntime "On"
 
 filter {"system:windows", "configurations:Release"}
-  buildoptions "/MT"
-    runtime "Release
+    buildoptions "/MT"
+    runtime "Release"
